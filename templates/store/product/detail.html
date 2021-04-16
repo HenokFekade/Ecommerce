@@ -1,0 +1,53 @@
+{% extends "../base.html" %}
+{% load static %}
+{% block content %}
+    <main>
+      <div class="album bg-light">
+        <div class="container">
+            <div class="m-auto row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+              <div class="m-auto mt-3 col-md-10">
+                <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                  <div class="col-auto d-none d-lg-block">
+                      <img src="{{ product.image.url }}" style="height: 30rem" class="img-fluid" alt="{{ product.title }}">
+                  </div>
+                  <div class="col p-4 d-flex flex-column position-static">
+                    <h3 class="mb-0">{{ product.title }}</h3>
+                    <p class="py-2"><span class="lead">{{ product.author }}</span> (Author)</p>
+                    <p class="card-text mb-auto mt-4">{{ product.description|slice:":355" }}</p>
+                    <div class="border">
+                      <div class="col border-bott">
+                        <div class="row p-3">
+                          <div class="col-6">
+                            Price
+                          </div>
+                          <div class="col-6 text-end">
+                            <span class="fw-bold h4">$ {{product.price}}</span>
+                          </div>
+                        </div>
+                          <div class="col">
+                              <div class="row p-3">
+                                  <div class="col-6">
+                                      <label for="select">Qty</label>
+                                      <select id="select" class="px-2 py-1">
+                                          <option value="1">1</option>
+                                          <option value="2">2</option>
+                                          <option value="3">3</option>
+                                          <option value="4">4</option>
+                                          <option value="5">5</option>
+                                      </select>
+                                  </div>
+                                  <div class="text-end col-6">
+                                      <button class="btn btn-secondary btn-sm">Add to basket</button>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>
+    </main>
+{% endblock %}

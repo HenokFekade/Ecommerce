@@ -1,0 +1,42 @@
+{% extends "./base.html" %}
+{% load static %}
+{% block title %} Home {% endblock %}
+
+{% block content %}
+    <main>
+      <section class="p2-5 text-center container">
+        <div class="row py-lg-2">
+          <div class="col-lg-6 col-md-8">
+            <h1 class="fw-light">All Books</h1>
+          </div>
+        </div>
+      </section>
+      <div class="album bg-light">
+        <div class="container">
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                {% for product in products %}
+                    <div class="col">
+                    <div class="card shadow-sm">
+                        <img src="{{ product.image.url }}" style="height: 30rem" class="img-fluid" alt="{{ product.title }}">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <a href="{{ product.get_absolute_url }}" class="text-dark text-decoration-none">
+                                    {{ product.title|title }}
+                                </a>
+                            </h5>
+                            <p class="card-text">{{ product.description }}</p>
+                            <small class="text-muted">
+                                <font style="vertical-align: inherit;">
+                                    <font style="vertical-align: inherit;">$ {{ product.price }}</font>
+                                </font>
+                            </small>
+                        </div>
+                    </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+      </div>
+
+    </main>
+{% endblock %}
